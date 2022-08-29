@@ -14,7 +14,7 @@ public class AthleteDto {
 
     private String country;
 
-    private Category categoryName;
+    private Category category;
 
     public String getName() {
         return name;
@@ -57,10 +57,10 @@ public class AthleteDto {
     }
 
     public Category getCategoryName() {
-        return categoryName;
+        return category;
     }
 
-    public void setCategoryName(Category categoryName) {
-        this.categoryName = categoryName;
+    public void setCategoryName(Category category) {
+        this.category = category;
     }
 }

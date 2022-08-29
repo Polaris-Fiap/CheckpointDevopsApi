@@ -24,6 +24,10 @@ public class Category {
 
     }
 
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public Category(String categoryName, List<Athletes> athletes) {
         this.categoryName = categoryName;
         this.athletes = athletes;
