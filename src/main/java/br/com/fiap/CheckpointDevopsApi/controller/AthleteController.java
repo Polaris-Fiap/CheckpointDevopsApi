@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.CheckpointDevopsApi.configuration.ModelMapperConfig;
 import br.com.fiap.CheckpointDevopsApi.dto.AthleteDto;
 import br.com.fiap.CheckpointDevopsApi.model.Athletes;
 import br.com.fiap.CheckpointDevopsApi.service.AthleteService;
@@ -25,10 +26,21 @@ public class AthleteController {
     @Autowired
     AthleteService service;
 
+    @Autowired
+    ModelMapperConfig modelMapper;
+
+    // @PostMapping
+    // public ResponseEntity<Athletes> saveAthletes(@RequestBody @Valid AthleteDto dto) {
+    //     Athletes athlete = new Athletes();
+    //     BeanUtils.copyProperties(dto, athlete);
+    //     service.save(athlete);
+    //     return ResponseEntity
+    //             .status(HttpStatus.CREATED)
+    //             .body(athlete);
+    // }
+
     @PostMapping
-    public ResponseEntity<Athletes> saveAthletes(@RequestBody @Valid AthleteDto dto) {
-        Athletes athlete = new Athletes();
-        BeanUtils.copyProperties(dto, athlete);
+    public ResponseEntity<Athletes> saveAthletes(@RequestBody @Valid Athletes athlete) {
         service.save(athlete);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -36,7 +48,7 @@ public class AthleteController {
     }
 
     @GetMapping
-    public List<Athletes> index() {
+    public List<Athletes> index(Athletes  athlete) {
         return service.listAll();
     }
 }
