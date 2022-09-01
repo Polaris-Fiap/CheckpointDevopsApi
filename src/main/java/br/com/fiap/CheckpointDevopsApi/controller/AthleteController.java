@@ -51,4 +51,9 @@ public class AthleteController {
     public List<Athletes> index(Athletes  athlete) {
         return service.listAll();
     }
+
+    @GetMapping("/athlete-dto")
+    public List<AthleteDto> listDtos(){
+        return service.listDtos();
+    }
 }

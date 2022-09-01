@@ -22,4 +22,12 @@ public class AthleteDto {
 
     private String categoryName;
 
+    public AthleteDto(Athletes athlete) {
+        name = athlete.getName();
+        description = athlete.getDescription();
+        age = athlete.getAge();
+        weight = athlete.getWeight();
+        country = athlete.getCountry();
+        categoryName = athlete.getCategory().getCategoryName();
+    }
 }
